@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VIKKA Admin</title><link rel="stylesheet" href="style.css"></head>
+<body class="admin-body"><header class="top"><a class="brand" href="index.html"><span class="logo">V</span><span>VIKKA <small>ADMIN</small></span></a><a href="index.html">← Store देखें</a></header>
+<main class="admin-wrap"><span class="eyebrow">STORE MANAGEMENT</span><h1>Product Manager</h1>
+<div class="notice"><b>कैसे काम करता है?</b><br>Product जोड़ें या बदलें, फिर <b>Download products.json</b> दबाएँ। डाउनलोड हुई फाइल को वेबसाइट के मुख्य फोल्डर में पुरानी <code>products.json</code> की जगह अपलोड करें। तभी सभी ग्राहकों को अपडेट दिखेगा।</div>
+<section class="admin-card"><h2>Store WhatsApp Number</h2><label>Country code सहित नंबर (जैसे 919876543210)</label><input id="wa" placeholder="91XXXXXXXXXX"><button id="saveWa" class="secondary">नंबर सेट करें</button><p class="tiny">यह नंबर config.js में भी बदल सकते हैं।</p></section>
+<section class="admin-card"><h2 id="formTitle">नया Product जोड़ें</h2><form id="productForm" class="admin-form">
+<input type="hidden" id="pid"><label>Product का नाम</label><input id="pname" required placeholder="जैसे Samsung Charger 25W">
+<label>कीमत (₹)</label><input id="pprice" type="number" min="0" required placeholder="499">
+<label>पुरानी कीमत (वैकल्पिक)</label><input id="pold" type="number" min="0" placeholder="599">
+<label>फोटो का URL</label><input id="pimage" placeholder="https://... या assets/photo.jpg">
+<label>छोटा विवरण</label><textarea id="pdesc" placeholder="Product की जानकारी"></textarea>
+<label>Category</label><input id="pcat" placeholder="Chargers / Fashion / Gifts">
+<div class="actions"><button class="primary" type="submit">Product Save करें</button><button type="button" class="secondary" id="cancelEdit">Cancel</button></div></form></section>
+<section class="admin-card"><div class="row-between"><h2>आपके Products</h2><button id="download" class="primary">Download products.json</button></div><div id="adminList"></div></section>
+<section class="admin-card"><h2>पुराने Products Import करें</h2><input type="file" id="importFile" accept=".json,application/json"><p class="tiny">दूसरे डिवाइस पर catalog बदलने के लिए products.json यहाँ Import कर सकते हैं।</p></section>
+</main><script src="config.js"></script><script src="admin.js"></script></body></html>
