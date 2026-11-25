@@ -1,28 +1,9 @@
 <!doctype html>
-<html lang="hi">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101827">
-<title>VIKKA Store</title><link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="top">
-  <a class="brand" href="#"><span class="logo">V</span><span>VIKKA <small>STORE</small></span></a>
-  <nav><a href="#products">Products</a><a href="#how">कैसे ऑर्डर करें</a><button class="cart-btn" id="cartOpen">Cart <b id="cartCount">0</b></button></nav>
-</header>
-<section class="hero">
-  <div class="hero-copy"><span class="eyebrow">WELCOME TO VIKKA STORE</span><h1>आपकी पसंद,<br><em>आपके घर तक।</em></h1>
-  <p>अच्छे Products चुनें, ऑर्डर WhatsApp पर भेजें और हम आपसे संपर्क करेंगे।</p><a class="primary" href="#products">Products देखें <span>→</span></a></div>
-  <div class="hero-art"><div class="circle"></div><div class="hero-card"><span>VIKKA</span><strong>SMART<br>SHOPPING</strong><small>Simple • Easy • Direct</small></div></div>
-</section>
-<main>
-<section class="section-head" id="products"><div><span class="eyebrow">OUR COLLECTION</span><h2>हमारे Products</h2></div><input id="search" placeholder="Product खोजें..." aria-label="Product खोजें"></section>
-<div id="productGrid" class="products"><p class="muted">Products लोड हो रहे हैं...</p></div>
-<section class="how" id="how"><span class="eyebrow">SIMPLE ORDERING</span><h2>ऑर्डर कैसे करें?</h2><div class="steps"><div><b>01</b><strong>Product चुनें</strong><p>अपनी पसंद का सामान Cart में डालें।</p></div><div><b>02</b><strong>जानकारी भरें</strong><p>नाम, मोबाइल और पता लिखें।</p></div><div><b>03</b><strong>WhatsApp पर भेजें</strong><p>ऑर्डर सीधे हमारे WhatsApp पर भेजें।</p></div></div></section>
-</main>
-<footer><b>VIKKA STORE</b><span>आपका भरोसेमंद ऑनलाइन स्टोर</span><a href="admin.html">Admin</a></footer>
-<div class="overlay" id="overlay"></div>
-<aside class="drawer" id="drawer"><div class="drawer-head"><h3>आपका Cart</h3><button id="cartClose" class="x">×</button></div><div id="cartItems"></div><div class="cart-total">कुल राशि <b id="cartTotal">₹0</b></div>
-<form id="orderForm"><h3>ऑर्डर की जानकारी</h3><input name="name" placeholder="आपका नाम" required><input name="phone" placeholder="मोबाइल नंबर" inputmode="tel" required><textarea name="address" placeholder="पूरा पता / गाँव / पिन कोड" required></textarea><textarea name="note" placeholder="कोई विशेष जानकारी (वैकल्पिक)"></textarea><button class="primary full" type="submit">WhatsApp पर Order भेजें ↗</button><p class="tiny">बटन दबाने पर WhatsApp खुलेगा। वहाँ Send दबाकर ऑर्डर पूरा करें।</p></form></aside>
-<script src="config.js"></script><script src="app.js"></script>
-</body></html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101827"><title>SHOPER | Smart Shopping</title><link rel="stylesheet" href="style.css"></head>
+<body><header class="top"><a class="brand" href="index.html"><span class="brandmark">S</span> SHOPER</a><nav><a href="#products">Products</a><a href="#about">About</a><a class="adminlink" href="admin.html">Admin Login</a></nav></header>
+<section class="hero"><div class="hero-copy"><span class="eyebrow">WELCOME TO SHOPER</span><h1>Find your next<br><em>favourite thing.</em></h1><p>Trending products, simple ordering and personal service. Choose your product and order directly on WhatsApp.</p><a class="btn light" href="#products">Explore Products <span>↗</span></a></div><div class="hero-art"><div class="orb"></div><div class="hero-card"><span>SHOPER PICKS</span><div class="hero-bag">✦</div><strong>Good finds.<br>Great prices.</strong><small>SHOP SMART · LIVE BETTER</small></div><div class="float-tag">✦ New arrivals</div></div></section>
+<main><section class="section" id="products"><div class="section-head"><div><span class="eyebrow dark">CURATED FOR YOU</span><h2>Explore products</h2></div><div class="search-wrap"><span>⌕</span><input id="search" placeholder="Search products..."></div></div><div id="productsGrid" class="products-grid"></div><div id="empty" class="empty" hidden>No products yet. Please check back soon.</div></section>
+<section class="trust" id="about"><div><b>01</b><strong>Handpicked products</strong><span>Selected with care</span></div><div><b>02</b><strong>Easy ordering</strong><span>Order on WhatsApp</span></div><div><b>03</b><strong>Personal support</strong><span>We help you directly</span></div></section></main>
+<footer><a class="brand" href="#"> <span class="brandmark">S</span> SHOPER</a><span>Simple shopping. Personal service.</span><small>© <span id="year"></span> SHOPER</small></footer>
+<div id="modal" class="modal" hidden><div class="modal-box"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+<script src="app.js"></script></body></html>
