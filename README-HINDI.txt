@@ -1,57 +1,47 @@
-SHOPER STORE – INSTALLATION GUIDE (Hindi)
+SHOPER PROFESSIONAL MULTI-PAGE STORE – HINDI GUIDE
 
-FEATURES
-- Responsive customer storefront for mobile and computer.
-- Products can have up to 4 images uploaded from your device (no image URLs).
-- Customer selects product, enters name, phone, address and quantity.
-- Order details open in WhatsApp to send to the store owner.
-- Admin dashboard to add, edit and delete products.
-- Works on GitHub Pages, Hostinger static hosting and other static hosting.
+Included pages:
+- index.html: professional homepage
+- shop.html: product catalogue with category filters and search
+- contact.html: contact details and WhatsApp contact form
+- admin.html: admin control panel
+- style.css, store.js, admin.js
+- site-data.json: demo products and all storefront settings
+- assets/: locally stored demo product images (SVG)
 
-FILES
-index.html       Customer website
-admin.html       Admin login/dashboard
-style.css        Design
-app.js           Storefront + WhatsApp order
-admin.js         Admin product manager
-products.json    Published product data
-
-DEFAULT ADMIN LOGIN
+Admin login defaults:
 Username: adminhero
 Password: Hero@1998
 
-IMPORTANT SECURITY WARNING
-This is a simple static starter. Login credentials are visible in admin.js and are NOT secure for a public production store. Anyone who inspects the JavaScript can discover them. Change the credentials before publishing, and do not reuse this password anywhere else. For secure admin login use a backend/server-side authentication system.
+IMPORTANT SECURITY:
+This is a static website for GitHub Pages / Hostinger static hosting. The admin password is checked in browser JavaScript and is visible to technically skilled visitors. This is NOT secure authentication. Do not use the same password on other services. A secure admin with protected login, shared editing across devices and server-side data requires backend + database hosting.
 
-SETUP
-1. Extract this ZIP on your computer.
-2. Open app.js in Notepad.
-3. Find: const WA_NUMBER = "919876543210";
-4. Replace with your WhatsApp number in international format, digits only, e.g. 91XXXXXXXXXX. Do not add + or spaces.
-5. Upload ALL files (not the ZIP) into the website root:
-   - Hostinger: public_html
-   - GitHub Pages: repository root (or configured publishing folder)
-6. Open https://your-domain/ and https://your-domain/admin.html
+WHATSAPP:
+Admin > Contact details > enter WhatsApp in international digits only, e.g. 91XXXXXXXXXX.
+Customer order opens WhatsApp with the order prefilled. Customer must tap Send.
+Orders are not saved in a central order database.
 
-ADD PRODUCTS
-1. Open /admin.html and login.
-2. Add product name, price, optional old price, description.
-3. Choose 1 to 4 product image files from your phone/computer.
-4. Save product.
-5. Click "Export store data". A products.json file downloads.
-6. Upload the downloaded products.json to the website root, replacing the old products.json.
-7. Refresh the customer website.
+INSTALL:
+1. Extract ZIP.
+2. Upload all files and folders into Hostinger public_html, or push all files to GitHub repo and enable GitHub Pages.
+3. Open /admin.html.
+4. Login, update WhatsApp, store name/logo/contact.
+5. Add/edit/delete products. Upload up to 4 images from your device.
+6. Click Export website data. Browser downloads site-data.json.
+7. Upload that file to the same root folder, replacing old site-data.json.
+8. Refresh storefront.
 
-ORDER FLOW
-Customer order opens WhatsApp with product, quantity, name, phone and address filled in. Customer must tap Send in WhatsApp. This static version does not store orders in a central database or automatically notify you if customer does not send the WhatsApp message.
+EDITABLE IN ADMIN:
+- Store name, tagline, logo text, logo image, primary colour
+- Announcement, hero heading and subtitle
+- Products: name, category, prices, tag, rating, description, 1-4 image files
+- Categories add/rename/delete
+- Show/hide homepage hero, categories, promo, footer, contact nav
+- WhatsApp, phone, email, address
+- Import/export site-data.json
 
-PRODUCT STORAGE
-The admin saves changes in the current browser until export. The exported products.json contains product images embedded as base64 data, so the image files do not need separate uploads. Upload the new products.json after changes to publish them for all visitors. Large image files make products.json large; use compressed images (ideally under 500 KB each).
+DEMO PRODUCTS:
+4 sample products with local SVG product images are included. These are placeholders. Replace with your actual product photos and verify product specs/prices before taking orders.
 
-GITHUB PAGES
-Upload all files to a GitHub repository and enable Settings > Pages. GitHub Pages supports static HTML/CSS/JS. It does not run PHP or server-side databases.
-
-HOSTINGER
-Upload all extracted files to public_html. This version is static and does not require PHP or a database.
-
-For real secure multi-user admin and centrally saved orders, a server/backend upgrade is required.
+NOTE:
+Static admin edits are saved in the current browser only. Export and upload site-data.json to publish. Uploaded images are embedded into the JSON as base64, so no remote image URLs are required. Compress photos before upload to keep site-data.json reasonably small.

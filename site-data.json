@@ -1,0 +1,93 @@
+{
+  "settings": {
+    "storeName": "SHOPER",
+    "tagline": "Discover products you'll love.",
+    "logoText": "S",
+    "logoImage": "",
+    "currency": "\u20b9",
+    "whatsapp": "919876543210",
+    "phone": "+91 98765 43210",
+    "email": "hello@shoper.in",
+    "address": "Your business address, India",
+    "heroTitle": "The art of finding<br><em>something good.</em>",
+    "heroSubtitle": "Thoughtfully picked products. A smooth shopping experience. Personal service, every step of the way.",
+    "showHero": true,
+    "showCategories": true,
+    "showPromo": true,
+    "showFooter": false,
+    "showServices": false,
+    "showContactNav": true,
+    "announcement": "WELCOME TO SHOPER \u2014 NEW FINDS, EVERY WEEK",
+    "primaryColor": "#315cf5",
+    "aboutText": "SHOPER brings together useful, stylish and value-focused finds in one easy place."
+  },
+  "categories": [
+    "All",
+    "Electronics",
+    "Fashion",
+    "Accessories"
+  ],
+  "products": [
+    {
+      "id": "demo-charger",
+      "name": "65W Fast Charger",
+      "category": "Electronics",
+      "price": 699,
+      "oldPrice": 999,
+      "rating": "4.8",
+      "tag": "BESTSELLER",
+      "description": "Fast charging adapter for compatible devices. Demo listing \u2014 replace details before selling.",
+      "images": [
+        "assets/charger.svg",
+        "assets/charger.svg",
+        "assets/charger.svg"
+      ]
+    },
+    {
+      "id": "demo-shoes",
+      "name": "Urban Everyday Sneakers",
+      "category": "Fashion",
+      "price": 1199,
+      "oldPrice": 1599,
+      "rating": "4.7",
+      "tag": "TRENDING",
+      "description": "Comfort-first everyday sneakers with a clean modern look. Demo listing.",
+      "images": [
+        "assets/shoes.svg",
+        "assets/shoes.svg",
+        "assets/shoes.svg",
+        "assets/shoes.svg"
+      ]
+    },
+    {
+      "id": "demo-watch",
+      "name": "Smart Watch Series",
+      "category": "Electronics",
+      "price": 1499,
+      "oldPrice": 1999,
+      "rating": "4.6",
+      "tag": "NEW",
+      "description": "A stylish smartwatch concept listing. Demo listing \u2014 confirm specifications before sale.",
+      "images": [
+        "assets/watch.svg",
+        "assets/watch.svg",
+        "assets/watch.svg"
+      ]
+    },
+    {
+      "id": "demo-bag",
+      "name": "Classic Daily Tote Bag",
+      "category": "Accessories",
+      "price": 599,
+      "oldPrice": 899,
+      "rating": "4.8",
+      "tag": "POPULAR",
+      "description": "A versatile carry-all bag for everyday use. Demo listing.",
+      "images": [
+        "assets/bag.svg",
+        "assets/bag.svg",
+        "assets/bag.svg"
+      ]
+    }
+  ]
+}
