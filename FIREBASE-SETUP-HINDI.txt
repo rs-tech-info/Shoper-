@@ -1,0 +1,66 @@
+SHOPER LIVE ADMIN – FIREBASE SETUP (एक बार करना है)
+====================================================
+
+आपकी ZIP में अब Firebase Realtime Database + Firebase Authentication + Firebase Storage जोड़े गए हैं।
+
+STEP 1 – Firebase Authentication चालू करें
+1. https://console.firebase.google.com/ खोलें और shopshine-4f753 project चुनें।
+2. Build > Authentication > Get started > Sign-in method में Email/Password enable करें।
+3. Authentication > Users > Add user में अपना Admin email और मजबूत password बनाएं।
+4. Public user sign-up वेबसाइट में नहीं है। Admin account केवल Console से बनाएं।
+5. Authentication > Settings > Authorized domains में अपना GitHub Pages domain जोड़ें, जैसे USERNAME.github.io (अपना वास्तविक domain डालें)।
+
+STEP 2 – Realtime Database Rules
+Firebase Console > Build > Realtime Database > Rules में यह लगाकर Publish करें:
+{
+  "rules": {
+    "store": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "orders": {
+      ".read": "auth != null",
+      "$orderId": {
+        ".write": "auth != null || (!data.exists() && newData.child('status').val() == 'New' && newData.child('customer').child('name').isString() && newData.child('customer').child('phone').isString())"
+      }
+    }
+  }
+}
+इससे storefront सार्वजनिक रूप से products पढ़ सकेगा, लेकिन store data केवल signed-in Firebase user बदल सकेगा। इस project में Admin login केवल आपके द्वारा Console में बनाए गए users के लिए रखें। यदि भविष्य में दूसरे Firebase users बनाते हैं तो वे भी लिख सकेंगे; उन्हें Admin account न दें।
+
+STEP 3 – Firebase Storage चालू करें
+Build > Storage > Get started करें। फिर Storage > Rules में यह Publish करें:
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.resource.size < 5 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*');
+    }
+  }
+}
+यह images को public read और signed-in Admin को 5 MB से छोटी image upload करने देता है।
+
+STEP 4 – GitHub पर नई ZIP upload करें
+1. ZIP extract करें।
+2. इसके अंदर की सभी files/folders को अपने GitHub repository के root में upload करके पुरानी files replace करें।
+3. firebase-config.js में आपका दिया हुआ Firebase project config पहले से भरा है। इसे न बदलें।
+4. GitHub Pages deployment पूरा होने दें। वेबसाइट HTTPS पर खोलें।
+
+STEP 5 – पहली बार डेटा Firebase में डालें
+1. Firebase Console > Realtime Database > Data में store node मौजूद न हो तो पहले Admin panel खोलें।
+2. Admin login करें। पुराना site-data.json Import / Export tab से Import करें। Import Firebase में save करेगा।
+3. उसके बाद products, categories, logo, design और contact settings Admin से सीधे save होंगे।
+
+ADMIN URL: https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY/admin.html
+(अपना वास्तविक GitHub Pages URL लगाएं)
+
+महत्वपूर्ण:
+- अब normal product/settings update के लिए GitHub पर JSON upload करने की जरूरत नहीं।
+- Firebase web apiKey browser में दिखना सामान्य है; असली सुरक्षा Authentication और Database/Storage Rules से आती है।
+- अब दोनों order विकल्प Firebase के orders node में रिकॉर्ड बनाते हैं: WhatsApp Order में रिकॉर्ड सेव होने के बाद WhatsApp चैट खुलेगी; Website Panel Order केवल वेबसाइट पर दर्ज होगा। Admin > Orders में दोनों दिखेंगे।
+- Firebase Storage/Realtime Database project billing/usage limits लागू हो सकते हैं।
+- यदि Firebase console में Database या Storage अभी create नहीं है तो पहले setup करें।
+\n\nSTEP 6 – Orders का काम\n1. Realtime Database > Rules में ऊपर दिए पूरे Rules को Publish करें।\n2. ग्राहक Product खोलकर WhatsApp Order या Website Order (Admin Panel) चुन सकता है।\n3. दोनों विकल्पों में order पहले Firebase में सेव होगा। WhatsApp विकल्प उसके बाद WhatsApp चैट खोलेगा।\n4. Admin login करके Orders tab में order देखे और status बदलें।\n5. WhatsApp में हुई बातचीत अपने आप पढ़ी नहीं जा सकती; यहाँ order record और WhatsApp खोलने का विकल्प मिलेगा।\n
